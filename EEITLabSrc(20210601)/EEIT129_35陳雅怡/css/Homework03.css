@@ -1,0 +1,20 @@
+.hw3h,
+.hw3p {
+    margin-left: 50px;
+}
+
+.rating {
+    width: 800px;
+    height: 380px;
+    border: 3px solid #FFD306;
+    padding: 100px 30px;
+    /* margin-right: 10px;
+    margin-left: 30px; */
+}
+
+.hw3h4 {
+    font-size: 50px;
+    font-weight: bolder;
+    color:red;
+    margin-left: 50px;
+}

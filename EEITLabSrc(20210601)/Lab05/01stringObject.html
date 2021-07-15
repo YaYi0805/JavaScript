@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+<head>
+    <meta charset="UTF-8">
+    <title>01stringObject.html</title>
+</head>
+<body>
+    <div id="info"></div>
+    <script>
+        //字串變數
+        let str = "java script";           
+        console.log(typeof str);    //string 
+        //字串物件
+        let strObj=new String("java script");
+        console.log(typeof strObj); //object
+        //字串的方法
+        console.log("strObj.charAt(3)="+strObj.charAt(3)); //a
+        console.log("strObj.charCodeAt(3)="+strObj.charCodeAt(3)); //97
+        console.log("strObj.indexOf('a')="+strObj.indexOf('a')); //1
+        console.log("strObj.lastIndexOf('a')="+strObj.lastIndexOf('a')); //3
+        console.log("strObj.lastIndexOf('@')="+strObj.lastIndexOf('@')); //-1 找不到回傳-1
+        console.log("strObj.substr(5,3)="+strObj.substr(5,3)); //scr 從第5索引取3個字元
+        console.log("strObj.substr(5)="+strObj.substr(5)); //script 沒給長度從第5索引取到最後
+        console.log("strObj.substring(5,8)="+strObj.substring(5,8)); //scr 從第5索引取到第8-1個索引
+        console.log("strObj.split(' ')="+strObj.split(' ')); //java,script 用空白分割,回傳分割後的字串陣列
+        let ary=strObj.split(' ');
+        console.log(ary); //Array(2),0: "java",1: "script"
+        console.log("strObj.toUpperCase()="+strObj.toUpperCase()); //JAVA SCRIPT 轉大寫
+
+        let strObj2=new String("一二三");
+        let ch=strObj2.charCodeAt(0);
+        console.log(ch); //19968 10進制
+        if(ch>=0x4e00 && ch<=0x9fff) //會自動轉換成16進制去比較
+            console.log(true);
+        else
+            console.log(false);
+    </script>
+</body>
+</html>

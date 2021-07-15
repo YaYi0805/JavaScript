@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+<head>
+    <meta charset="UTF-8">
+    <title>02getElementContent.html</title>
+</head>
+<body>    
+    <div id="myDiv">div</div>
+    <script>
+        var eleObj=document.getElementById("myDiv"); //取得標籤
+        console.log(eleObj); //<div id="myDiv">div</div>
+        
+        var eleObjcont=eleObj.innerHTML; //讀取內容
+        console.log(eleObjcont); //div
+
+        eleObj.innerHTML="JavaScript";   //取代內容
+        console.log(eleObj); //<div id="myDiv">JavaScript</div>
+
+        eleObj.innerHTML=eleObj.innerHTML+"<h2>EEIT</h2>";
+        eleObj.innerHTML+="<h2>EEIT</h2>"; //累加 (<h2>會佔一整行)
+        //<div id="myDiv">JavaScript<h2>EEIT</h2></div>
+
+        
+    </script>
+</body>
+</html>

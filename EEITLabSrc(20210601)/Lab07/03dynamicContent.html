@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html lang="zh-tw">
+<head>
+    <meta charset="UTF-8">
+    <title>03dynamicContent.html</title>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            document.getElementById("butinnerText").addEventListener("click",TextContent);  //事件繫結
+            document.getElementById("butinnerHTML").addEventListener("click",InnerHTML);
+            document.getElementById("butouterText").addEventListener("click",OuterText);
+            document.getElementById("butouterHTML").addEventListener("click",OuterHTML);
+        });
+
+        function TextContent() {
+           document.getElementById("h").textContent = "<i>italic</i>";
+           //把this is heading 1 取代成 <i>italic</i> 純文字
+        }
+
+        function InnerHTML() {
+            document.getElementById("h").innerHTML = "<i>italic</i>";
+            //把this is heading 1 取代成 <i>italic</i> 標籤會解譯變italic斜體
+        }
+
+        function OuterText() {
+            document.getElementById("h").outerText = "<i>italic</i>";  
+            //把 <h1 id="h">this is heading 1</h1> 全部取代成 <i>italic</i> 純文字且變inline
+        }
+
+        function OuterHTML() {
+            document.getElementById("h").outerHTML = "<i>italic</i>";
+            //把 <h1 id="h">this is heading 1</h1> 全部取代成 <i>italic</i> 標籤會解譯變italic斜體且變inline
+        }          
+    </script>
+</head>
+<body>
+    <h1 id="h">this is heading 1</h1>
+	<input type="button" id="butinnerText" value="textContent" />
+	<input type="button" id="butinnerHTML" value="innerHTML" />
+	<input type="button" id="butouterText" value="outerText" />
+    <input type="button" id="butouterHTML" value="outerHTML" />   
+</body>
+</html>

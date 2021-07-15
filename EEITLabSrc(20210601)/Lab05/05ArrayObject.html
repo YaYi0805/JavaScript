@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+<head>
+    <meta charset="UTF-8">
+    <title>05ArrayObject.html</title>
+</head>
+<body>
+    <script>
+        //Array 物件
+        let balls=["baseball","basketball","tennis",123];
+        console.log(balls); //["baseball", "basketball", "tennis", 123]
+        
+        let myfoods = [["apple", "banana", "grape"], ["pork", "beef"]]; //陣列裡放陣列
+        console.log(myfoods.length); //2
+        for (let i = 0, maxi = myfoods.length; i < maxi; i++) {
+            //console.log(myfoods[i]);
+            //console.log(`myfoods[${i}]=${myfoods[i].length}`);
+            for (let j = 0, maxj = myfoods[i].length; j < maxj; j++) {
+                console.log(myfoods[i][j]); 
+                //myfoods[0][0]="apple"
+                //myfoods[0][1]="banana"
+                //myfoods[0][2]="grape"
+                //myfoods[1][0]="pork"
+                //myfoods[1][1]="beef"
+            }
+        }
+
+        console.log("----------------------------");
+
+        //用ES6提供的for(變數名稱 of 可迭代物件) ->注意這裡的變數名稱是值,非index
+        for(let myfood of myfoods){
+            console.log(myfood); //["apple", "banana", "grape"]和["pork", "beef"]
+            for(let food of myfood){
+                console.log(food); //"apple", "banana", "grape"和"pork", "beef"
+            }
+        }
+        //Array 方法
+        let ary=[4,5,6];        
+        console.log(balls.concat(ary)); //串接成新陣列["baseball", "basketball", "tennis", 123, 4, 5, 6]
+        console.log(balls.join("-"));   //baseball-basketball-tennis-123
+        console.log(balls);             //["baseball", "basketball", "tennis", 123]
+        console.log(balls.reverse());   //[123, "tennis", "basketball", "baseball"]
+        balls.push("item1","item2","item3"); //先push尾端要加入的元素,再console.log(balls.push());印出加入後有幾個元素
+        console.log(balls);             //[123, "tennis", "basketball", "baseball", "item1", "item2", "item3"]
+        console.log(balls.push());      //7
+        balls.pop();                    //重尾端取出一個元素
+        console.log(balls);             //[123, "tennis", "basketball", "baseball", "item1", "item2"]
+        console.log(balls.slice(1,4));  //["tennis", "basketball", "baseball"]
+        balls.splice(1,2,"add1","add2","add3"); //替換
+        console.log(balls);             //[123, "add1", "add2", "add3", "baseball", "item1", "item2"]
+    </script>
+</body>
+</html>

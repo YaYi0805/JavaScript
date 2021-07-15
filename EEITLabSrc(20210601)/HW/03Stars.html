@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>03stars</title>
+    <style>
+        h3,p{
+            margin-left: 50px;
+        }
+        figure {
+            width: 665px;
+            border: 3px solid #FFD306;
+            float: left;
+            padding: 30px;
+            margin-right: 20px;
+        }
+        figcaption{
+            font-size: 30px;
+            font-weight: bolder;
+            text-align: center;
+            color: 	#D94600;
+        }
+    </style>
+</head>
+
+<body>
+    <h3>Homework 3. 評點製作</h3>
+    <p>說明：單點擊星星可評分，雙點擊星星可重新評分。</p>
+    <figure>
+        <img src="Images/star.gif" id="star1" />
+        <img src="Images/star.gif" id="star2" />
+        <img src="Images/star.gif" id="star3" />
+        <img src="Images/star.gif" id="star4" />
+        <img src="Images/star.gif" id="star5" />
+        <figcaption>分數：<span id="score"></span></figcaption>
+    </figure>
+    <script>
+        let score = document.getElementById("score");
+        score.innerHTML="尚未評分";
+        document.getElementById("star1").onmouseover = function () {
+            this.src = "Images/chngstar.gif";
+        }
+        document.getElementById("star1").onmouseout = function () {
+            this.src = "Images/star.gif";
+        }
+        document.getElementById("star1").onclick = function () {
+            this.src = "Images/chngstar.gif";
+            score.innerHTML="1顆星";
+            document.getElementById("star1").onmouseout = function () {
+                this.src = "Images/chngstar.gif";
+            }
+            document.getElementById("star2").onmouseout = function () {
+                this.src = "Images/star.gif";
+            }
+            document.getElementById("star3").onmouseout = function () {
+                this.src = "Images/star.gif";
+                document.getElementById("star2").src = "Images/star.gif";
+            }
+            document.getElementById("star4").onmouseout = function () {
+                this.src = "Images/star.gif";
+                document.getElementById("star2").src = "Images/star.gif";
+                document.getElementById("star3").src = "Images/star.gif";
+            }
+            document.getElementById("star5").onmouseout = function () {
+                this.src = "Images/star.gif";
+                document.getElementById("star2").src = "Images/star.gif";
+                document.getElementById("star3").src = "Images/star.gif";
+                document.getElementById("star4").src = "Images/star.gif";
+            }
+            document.getElementById("star2").src = "Images/star.gif";
+            document.getElementById("star3").src = "Images/star.gif";
+            document.getElementById("star4").src = "Images/star.gif";
+            document.getElementById("star5").src = "Images/star.gif";
+        }
+        document.getElementById("star1").ondblclick = function () {
+            this.src = "Images/star.gif";
+            score.innerHTML="尚未評分";
+            document.getElementById("star1").onmouseout = function () {
+                this.src = "Images/star.gif";
+            }
+            document.getElementById("star2").onmouseout = function () {
+                this.src = "Images/star.gif";
+                document.getElementById("star1").src = "Images/star.gif";
+            }
+            document.getElementById("star3").onmouseout = function () {
+                this.src = "Images/star.gif";
+                document.getElementById("star1").src = "Images/star.gif";
+                document.getElementById("star2").src = "Images/star.gif";
+            }
+            document.getElementById("star4").onmouseout = function () {
+                this.src = "Images/star.gif";
+                document.getElementById("star1").src = "Images/star.gif";
+                document.getElementById("star2").src = "Images/star.gif";
+                document.getElementById("star3").src = "Images/star.gif";
+            }
+            document.getElementById("star5").onmouseout = function () {
+                this.src = "Images/star.gif";
+                document.getElementById("star1").src = "Images/star.gif";
+                document.getElementById("star2").src = "Images/star.gif";
+                document.getElementById("star3").src = "Images/star.gif";
+                document.getElementById("star4").src = "Images/star.gif";
+            }
+            document.getElementById("star2").src = "Images/star.gif";
+            document.getElementById("star3").src = "Images/star.gif";
+            document.getElementById("star4").src = "Images/star.gif";
+            document.getElementById("star5").src = "Images/star.gif";
+        }
+        //-----------------------------------------------------------
+        document.getElementById("star2").onmouseover = function () {
+            this.src = "Images/chngstar.gif";
+            document.getElementById("star1").src = "Images/chngstar.gif";
+        }
+        document.getElementById("star2").onmouseout = function () {
+            this.src = "Images/star.gif";
+            document.getElementById("star1").src = "Images/star.gif";
+        }
+        document.getElementById("star2").onclick = function () {
+            this.src = "Images/chngstar.gif";
+            score.innerHTML="2顆星";
+            document.getElementById("star2").onmouseout = function () {
+                this.src = "Images/chngstar.gif";
+            }
+            document.getElementById("star1").onmouseout = function () {
+                this.src = "Images/chngstar.gif";
+            }
+            document.getElementById("star3").onmouseout = function () {
+                this.src = "Images/star.gif";
+            }
+            document.getElementById("star4").onmouseout = function () {
+                this.src = "Images/star.gif";
+                document.getElementById("star3").src = "Images/star.gif";
+            }
+            document.getElementById("star5").onmouseout = function () {
+                this.src = "Images/star.gif";
+                document.getElementById("star3").src = "Images/star.gif";
+                document.getElementById("star4").src = "Images/star.gif";
+            }
+            document.getElementById("star1").src = "Images/chngstar.gif";
+            document.getElementById("star3").src = "Images/star.gif";
+            document.getElementById("star4").src = "Images/star.gif";
+            document.getElementById("star5").src = "Images/star.gif";
+        }
+        document.getElementById("star2").ondblclick = function () {
+            this.src = "Images/star.gif";
+            score.innerHTML="尚未評分";
+            document.getElementById("star1").onmouseout = function () {
+                this.src = "Images/star.gif";
+            }
+            document.getElementById("star2").onmouseout = function () {
+                this.src = "Images/star.gif";
+                document.getElementById("star1").src = "Images/star.gif";
+            }
+            document.getElementById("star3").onmouseout = function () {
+                this.src = "Images/star.gif";
+                document.getElementById("star1").src = "Images/star.gif";
+                document.getElementById("star2").src = "Images/star.gif";
+            }
+            document.getElementById("star4").onmouseout = function () {
+                this.src = "Images/star.gif";
+                document.getElementById("star1").src = "Images/star.gif";
+                document.getElementById("star2").src = "Images/star.gif";
+                document.getElementById("star3").src = "Images/star.gif";
+            }
+            document.getElementById("star5").onmouseout = function () {
+                this.src = "Images/star.gif";
+                document.getElementById("star1").src = "Images/star.gif";
+                document.getElementById("star2").src = "Images/star.gif";
+                document.getElementById("star3").src = "Images/star.gif";
+                document.getElementById("star4").src = "Images/star.gif";
+            }
+            document.getElementById("star1").src = "Images/star.gif";
+            document.getElementById("star3").src = "Images/star.gif";
+            document.getElementById("star4").src = "Images/star.gif";
+            document.getElementById("star5").src = "Images/star.gif";
+        }
+        //---------------------------------------------------------------
+        document.getElementById("star3").onmouseover = function () {
+            this.src = "Images/chngstar.gif";
+            document.getElementById("star1").src = "Images/chngstar.gif";
+            document.getElementById("star2").src = "Images/chngstar.gif";
+        }
+        document.getElementById("star3").onmouseout = function () {
+            this.src = "Images/star.gif";
+            document.getElementById("star1").src = "Images/star.gif";
+            document.getElementById("star2").src = "Images/star.gif";
+        }
+        document.getElementById("star3").onclick = function () {
+            this.src = "Images/chngstar.gif";
+            score.innerHTML="3顆星";
+            document.getElementById("star3").onmouseout = function () {
+                this.src = "Images/chngstar.gif";
+            }
+            document.getElementById("star2").onmouseout = function () {
+                this.src = "Images/chngstar.gif";
+            }
+            document.getElementById("star1").onmouseout = function () {
+                this.src = "Images/chngstar.gif";
+            }
+            document.getElementById("star4").onmouseout = function () {
+                this.src = "Images/star.gif";
+            }
+            document.getElementById("star5").onmouseout = function () {
+                this.src = "Images/star.gif";
+                document.getElementById("star4").src = "Images/star.gif";
+            }
+            document.getElementById("star1").src = "Images/chngstar.gif";
+            document.getElementById("star2").src = "Images/chngstar.gif";
+            document.getElementById("star4").src = "Images/star.gif";
+            document.getElementById("star5").src = "Images/star.gif";
+        }
+        document.getElementById("star3").ondblclick = function () {
+            this.src = "Images/star.gif";
+            score.innerHTML="尚未評分";
+            document.getElementById("star1").onmouseout = function () {
+                this.src = "Images/star.gif";
+            }
+            document.getElementById("star2").onmouseout = function () {
+                this.src = "Images/star.gif";
+                document.getElementById("star1").src = "Images/star.gif";
+            }
+            document.getElementById("star3").onmouseout = function () {
+                this.src = "Images/star.gif";
+                document.getElementById("star1").src = "Images/star.gif";
+                document.getElementById("star2").src = "Images/star.gif";
+            }
+            document.getElementById("star4").onmouseout = function () {
+                this.src = "Images/star.gif";
+                document.getElementById("star1").src = "Images/star.gif";
+                document.getElementById("star2").src = "Images/star.gif";
+                document.getElementById("star3").src = "Images/star.gif";
+            }
+            document.getElementById("star5").onmouseout = function () {
+                this.src = "Images/star.gif";
+                document.getElementById("star1").src = "Images/star.gif";
+                document.getElementById("star2").src = "Images/star.gif";
+                document.getElementById("star3").src = "Images/star.gif";
+                document.getElementById("star4").src = "Images/star.gif";
+            }
+            document.getElementById("star1").src = "Images/star.gif";
+            document.getElementById("star2").src = "Images/star.gif";
+            document.getElementById("star4").src = "Images/star.gif";
+            document.getElementById("star5").src = "Images/star.gif";
+        }
+        //---------------------------------------------------------------
+        document.getElementById("star4").onmouseover = function () {
+            this.src = "Images/chngstar.gif";
+            document.getElementById("star1").src = "Images/chngstar.gif";
+            document.getElementById("star2").src = "Images/chngstar.gif";
+            document.getElementById("star3").src = "Images/chngstar.gif";
+        }
+        document.getElementById("star4").onmouseout = function () {
+            this.src = "Images/star.gif";
+            document.getElementById("star1").src = "Images/star.gif";
+            document.getElementById("star2").src = "Images/star.gif";
+            document.getElementById("star3").src = "Images/star.gif";
+        }
+        document.getElementById("star4").onclick = function () {
+            this.src = "Images/chngstar.gif";
+            score.innerHTML="4顆星";
+            document.getElementById("star4").onmouseout = function () {
+                this.src = "Images/chngstar.gif";
+            }
+            document.getElementById("star3").onmouseout = function () {
+                this.src = "Images/chngstar.gif";
+            }
+            document.getElementById("star2").onmouseout = function () {
+                this.src = "Images/chngstar.gif";
+            }
+            document.getElementById("star1").onmouseout = function () {
+                this.src = "Images/chngstar.gif";
+            }
+            document.getElementById("star5").onmouseout = function () {
+                this.src = "Images/star.gif";
+            }
+            document.getElementById("star1").src = "Images/chngstar.gif";
+            document.getElementById("star2").src = "Images/chngstar.gif";
+            document.getElementById("star3").src = "Images/chngstar.gif";
+            document.getElementById("star5").src = "Images/star.gif";
+        }
+        document.getElementById("star4").ondblclick = function () {
+            this.src = "Images/star.gif";
+            score.innerHTML="尚未評分";
+            document.getElementById("star1").onmouseout = function () {
+                this.src = "Images/star.gif";
+            }
+            document.getElementById("star2").onmouseout = function () {
+                this.src = "Images/star.gif";
+                document.getElementById("star1").src = "Images/star.gif";
+            }
+            document.getElementById("star3").onmouseout = function () {
+                this.src = "Images/star.gif";
+                document.getElementById("star1").src = "Images/star.gif";
+                document.getElementById("star2").src = "Images/star.gif";
+            }
+            document.getElementById("star4").onmouseout = function () {
+                this.src = "Images/star.gif";
+                document.getElementById("star1").src = "Images/star.gif";
+                document.getElementById("star2").src = "Images/star.gif";
+                document.getElementById("star3").src = "Images/star.gif";
+            }
+            document.getElementById("star5").onmouseout = function () {
+                this.src = "Images/star.gif";
+                document.getElementById("star1").src = "Images/star.gif";
+                document.getElementById("star2").src = "Images/star.gif";
+                document.getElementById("star3").src = "Images/star.gif";
+                document.getElementById("star4").src = "Images/star.gif";
+            }
+            document.getElementById("star1").src = "Images/star.gif";
+            document.getElementById("star2").src = "Images/star.gif";
+            document.getElementById("star3").src = "Images/star.gif";
+            document.getElementById("star5").src = "Images/star.gif";
+        }
+        //---------------------------------------------------------------
+        document.getElementById("star5").onmouseover = function () {
+            this.src = "Images/chngstar.gif";
+            document.getElementById("star1").src = "Images/chngstar.gif";
+            document.getElementById("star2").src = "Images/chngstar.gif";
+            document.getElementById("star3").src = "Images/chngstar.gif";
+            document.getElementById("star4").src = "Images/chngstar.gif";
+        }
+        document.getElementById("star5").onmouseout = function () {
+            this.src = "Images/star.gif";
+            document.getElementById("star1").src = "Images/star.gif";
+            document.getElementById("star2").src = "Images/star.gif";
+            document.getElementById("star3").src = "Images/star.gif";
+            document.getElementById("star4").src = "Images/star.gif";
+        }
+        document.getElementById("star5").onclick = function () {
+            this.src = "Images/chngstar.gif";
+            score.innerHTML="5顆星";
+            document.getElementById("star5").onmouseout = function () {
+                this.src = "Images/chngstar.gif";
+            }
+            document.getElementById("star4").onmouseout = function () {
+                this.src = "Images/chngstar.gif";
+            }
+            document.getElementById("star3").onmouseout = function () {
+                this.src = "Images/chngstar.gif";
+            }
+            document.getElementById("star2").onmouseout = function () {
+                this.src = "Images/chngstar.gif";
+            }
+            document.getElementById("star1").onmouseout = function () {
+                this.src = "Images/chngstar.gif";
+            }
+            document.getElementById("star1").src = "Images/chngstar.gif";
+            document.getElementById("star2").src = "Images/chngstar.gif";
+            document.getElementById("star3").src = "Images/chngstar.gif";
+            document.getElementById("star4").src = "Images/chngstar.gif";
+        }
+        document.getElementById("star5").ondblclick = function () {
+            this.src = "Images/star.gif";
+            score.innerHTML="尚未評分";
+            document.getElementById("star1").onmouseout = function () {
+                this.src = "Images/star.gif";
+            }
+            document.getElementById("star2").onmouseout = function () {
+                this.src = "Images/star.gif";
+                document.getElementById("star1").src = "Images/star.gif";
+            }
+            document.getElementById("star3").onmouseout = function () {
+                this.src = "Images/star.gif";
+                document.getElementById("star1").src = "Images/star.gif";
+                document.getElementById("star2").src = "Images/star.gif";
+            }
+            document.getElementById("star4").onmouseout = function () {
+                this.src = "Images/star.gif";
+                document.getElementById("star1").src = "Images/star.gif";
+                document.getElementById("star2").src = "Images/star.gif";
+                document.getElementById("star3").src = "Images/star.gif";
+            }
+            document.getElementById("star5").onmouseout = function () {
+                this.src = "Images/star.gif";
+                document.getElementById("star1").src = "Images/star.gif";
+                document.getElementById("star2").src = "Images/star.gif";
+                document.getElementById("star3").src = "Images/star.gif";
+                document.getElementById("star4").src = "Images/star.gif";
+            }
+            document.getElementById("star1").src = "Images/star.gif";
+            document.getElementById("star2").src = "Images/star.gif";
+            document.getElementById("star3").src = "Images/star.gif";
+            document.getElementById("star4").src = "Images/star.gif";
+        }
+
+    </script>
+</body>
+
+</html>

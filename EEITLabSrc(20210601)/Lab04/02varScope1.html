@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+<html lang="zh-tw">
+<head>
+    <meta charset="UTF-8">
+    <title>02varScope.html</title>
+</head>
+<body>
+    <script>
+        //情況一 廣域(全域)變數在函數外宣告
+            //廣域(全域)變數
+            var a=100; //global variable
+            //系統內部step1. var a; //a在此還是undefined
+            //系統內部step2. a=10;   
+    
+            //函數宣告定義
+            function f(){
+                var a=10; //local variable
+                console.log("function a="+a);         //執行順序2.function a=10
+                //可用 window. 或 this. 在區域變數裡呼叫廣域(全域)變數
+                console.log("window.a="+window.a);    //執行順序3.window.a=100
+                console.log("this.a="+this.a);        //執行順序4.this.a=100
+                console.log(this);                    //執行順序5.this是window object
+            }
+        
+            //呼叫函數
+            console.log("function call before a="+a); //執行順序1.function call before a=100
+            f();
+            console.log("function call after a="+a);  //執行順序6.function call after a=100
+    </script>
+</body>
+</html>

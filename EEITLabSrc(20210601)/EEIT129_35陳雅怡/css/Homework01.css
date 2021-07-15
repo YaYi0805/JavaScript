@@ -1,0 +1,23 @@
+.tb1 {
+    width: 800px;
+    border: 3px solid #0080FF;
+    border-collapse: collapse;
+    text-align: center;
+    color: #000079;
+    font-size: 20px;
+}
+
+th {
+    background-color: #F1E1FF;
+    border: 1px solid blue;
+}
+
+td {
+    background-color: #D9FFFF;
+    border: 1px solid blue;
+}
+
+tbody td:hover {
+    background-color: #F1E1FF;
+    color: #CE0000;
+}

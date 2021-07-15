@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+<head>
+    <meta charset="UTF-8">
+    <title>07JSON.html</title>
+</head>
+<body>
+    <div id="div1"></div>
+    <script>
+        //二維陣列
+        myDatas = [["apple", "banana", "grape"], ["pork", "beef"]];
+        console.log(myDatas[1][0]);  //pork
+        for (let i = 0, maxi = myDatas.length; i < maxi; i++) {
+            for (let j = 0, maxj = myDatas[i].length; j < maxj; j++) {
+                console.log(myDatas[i][j]);
+            }
+        }
+
+        //array = [value,value,value]
+        let names = ["Tom", "Jack", "Mary"];
+
+        //object {property:value,property:value}
+        let obj = { name: "Paul", age: 20 };
+        alert(obj.name); //視窗Paul
+        //alert(obj.age)
+
+        //JSON array + object
+        //let emps = [{},{},{}];       //型式一
+        //let obj = {emps:[{},{},{}]}  //型式二
+
+        //型式一
+        let emps = [{ name: "Jack", age: 20 },
+                    { name: "Mary", age: 29 },
+                    { name: "Steve", age: 24 }];
+
+        //emps -> array
+        //emps[0] -> object { name: "Jack", age: 20 }
+        //emps[0].name -> Jack
+        alert(emps[0].name); //視窗Jack
+        
+        ////型式二
+        var data = {"emps":[
+                      {"name":"Tom","workYears":3,"salary":35000},
+                      {"name":"Jack","workYears":5,"salary":40000},
+                      {"name":"Mary","workYears":7,"salary":45000}
+                   ]};
+
+        //data -> object       
+        //data.emps -> array             
+        //data.emps[0] -> object       
+        //data.emps[0].name -> Tom  
+        console.log(data);              //object
+        console.log(data.emps);         //array
+        console.log(data.emps[0]);      //{"name":"Tom","workYears":3,"salary":35000}
+        console.log(data.emps[0].name); //Tom
+        console.log(data.emps[1].name); //jack
+        console.log(data.emps[2].name); //Mary
+
+        let str="<ul>";
+        let name,wy,salary;
+        for(let i=0;i<data.emps.length;i++){
+            console.log(data.emps[i].name);
+            name=data.emps[i].name;
+            wy=data.emps[i].workYears;
+            salary=data.emps[i].salary;
+            str+=`<li>${name},${wy},${salary}</li>`;
+            console.log(str);
+        }
+        str+="</ul>"
+        document.getElementById("div1").innerHTML=str;
+    </script>
+</body>
+</html>

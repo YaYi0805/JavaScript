@@ -1,0 +1,19 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>08eventObjectDemo.html</title>
+    <script>
+        //在文件的contextmenu事件(按滑鼠右鍵)，取消預設的動作(preventDefault)
+        document.addEventListener("contextmenu",function(){
+            event.preventDefault();
+        })
+    </script>
+</head>
+<body>
+    this is test line<br/>	
+    <img src="WindowObject/WinImages/101.gif" />
+	<a href="http://www.google.com" onclick="event.preventDefault();">google</a> 
+    <!-- href連結預設動作可按下連至指定網頁,onclick="event.preventDefault();取消預設 -->
+</body>
+</html>

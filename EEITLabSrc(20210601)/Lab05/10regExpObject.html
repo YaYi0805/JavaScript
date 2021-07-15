@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html lang="zh-tw">
+<head>
+    <meta charset="UTF-8">
+    <title>10regExpObject.html</title>
+</head>
+<body>
+    <label>Email:</label>
+    <input type="text" id="idEmail" />
+    <br/>
+    <input type="button" value="checkEmail" onclick="chkEmail();" />
+    <script>
+        let str="Is this all there is?";
+        let re=new RegExp("is","gi"); //gi 全域並忽略大小寫,可試試"g","i",""
+        console.log(str.match(re));	//["Is", "is", "is"]
+        
+        function chkEmail() {
+            //取得元素值
+            let theEmail = document.getElementById("idEmail").value;
+            //建立RegExp物件 因@也是.任何字元故可改用\w[^A-Za-z]更嚴謹
+            let re = /^\w+@\w+\.\w{2,3}$/; //literal RegExp 字面值寫法
+            
+            //建立RegExp物件兩語法比較
+            //let re1 = /^.+@.+\..{2,3}$/;             //literal RegExp 字面值寫法
+            //let re2=new RegExp("^.+@.+\\..{2,3}$");  //放在字串寫法,所以要\\.才等於\.
+            //alert("re1="+re1+"\nre2="+re2);          //印出來一樣
+    
+            if (re.test(theEmail))
+                window.alert("successful");
+            else
+                window.alert("failure");
+            }
+    </script>
+</body>
+</html>

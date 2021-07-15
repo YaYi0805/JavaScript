@@ -1,0 +1,31 @@
+.fieldset {
+    width: 700px;
+    /* border: 3px solid red; */
+    border-radius: 20px;
+    margin: 15px;
+    background-color: #ECFFFF;
+    box-shadow: 8px 8px 5px #BEBEBE;
+}
+
+.legend {
+    color: black;
+    font-weight: bolder;
+    font-size: 22px;
+    margin-left: 50px;
+}
+
+.d {
+    width: 650px;
+    border-bottom: 2px dashed #BEBEBE;
+    margin: 20px;
+    padding-bottom: 10px;
+}
+
+.p {
+    margin: 0;
+    padding: 0;
+    color: gray;
+}
+.label,.input{
+    font-size: 18px;
+}

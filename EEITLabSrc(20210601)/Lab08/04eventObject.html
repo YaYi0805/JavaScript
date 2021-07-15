@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>05eventObject.html</title>
+    <script>
+        //IE10以下的瀏覽器(window 7),HTML屬性事件
+        //回傳1 表示使用者按下左鍵，chrome 回傳0
+        //回傳4 表示使用者按下滾輪，chrome 回傳1
+        //回傳2 表示使用者按下右鍵，chrome 回傳2
+        function IEmouseDown() { //IE8以前是透過全域變數window.event來取用這個物件,window.可省略,且不需要參數
+            alert(event.type); //mousedown
+            alert(event.button); //0
+        }
+
+        //IE8以下的瀏覽器(window 7),HTML屬性事件
+        //回傳1 表示使用者按下左鍵，Fixefox及chrome 回傳0
+        //回傳4 表示使用者按下滾輪，Fixefox及chrome 回傳1
+        //回傳2 表示使用者按下右鍵，Fixefox及chrome 回傳2
+        function FirefoxmouseDown(nsevent) { //以event物件作為參數來使用,以形式參數nsevent(自己命名)來接收
+            //alert(nsevent);
+            alert(nsevent.type); //mousedown
+            alert(nsevent.button); //0
+        }
+
+        //W3C DOM 事件處理程序(IE9以上)
+        //document.addEventListener("DOMContentLoaded", function () {  
+            // document.getElementById("idmouse2").addEventListener("mousedown", mouseDown);  //事件繫結                               
+        //});
+
+        //JavaScript屬性事件處理程序(IE8以下)
+        //window.onload=function(){
+        //    document.getElementById("idmouse2").onmousedown = mouseDown;
+        //}   
+        
+    </script>
+</head>
+<body>
+    <!--HTML屬性事件處理程序-->
+    <!-- IE8 -->
+    <input type="button" id="idmouseIE" value="HTML屬性事件(IE8)" onmousedown="IEmouseDown();" /> <!-- IE8 將event視為全域的屬性,直接可以用不用傳遞參數 -->
+    <!-- Firefox -->
+    <input type="button" id="idmouseFx" value="HTML屬性事件(Firefox)" onmousedown="FirefoxmouseDown(event);" /> <!-- Firefox 將event視為參數,且一定要用event這個保留字 -->
+    
+    <!-- W3C DOM 事件處理程序 -->
+    <input type="button" id="idmouse2" value="JavaScript屬性事件" />    
+</body>
+</html>

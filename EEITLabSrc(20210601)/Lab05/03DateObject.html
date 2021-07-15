@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+<head>
+    <meta charset="UTF-8">
+    <title>03DateObject.html</title>
+</head>
+<body>
+    <script>
+        //建立日期物件語法 1
+        let d = new Date();
+        console.log(d); //Thu Jun 24 2021 13:35:02 GMT+0800 (台北標準時間)
+
+        //建立日期物件語法 2 標準日期格式用-
+        d=new Date("2021-06-24"); //標準日期格式寫法->預設08:00:00
+        console.log(d); //Thu Jun 24 2021 08:00:00 GMT+0800 (台北標準時間)
+        d=new Date("2021-6-24"); //非正式寫法,若後有接時間會變Invalid Date
+        console.log(d); //Thu Jun 24 2021 00:00:00 GMT+0800 (台北標準時間)
+        d=new Date("2021-06-24T13:36:30");
+        console.log(d); //Thu Jun 24 2021 13:36:30 GMT+0800 (台北標準時間)
+        d=new Date("2021-6-24T13:36:30");
+        console.log(d); //Invalid Date
+        d=new Date("2021-06-24T01:36:30");
+        console.log(d); //Thu Jun 24 2021 01:36:30 GMT+0800 (台北標準時間)
+        d=new Date("2021-06-24T1:36:30"); //時間沒補0
+        console.log(d); //Invalid Date
+        d=new Date("2021/6/24 1:36:30 pm"); 
+        console.log(d); //Thu Jun 24 2021 13:36:30 GMT+0800 (台北標準時間)
+
+        //建立日期物件語法 3
+        d=new Date(2021,5,24);
+        console.log(d); //Thu Jun 24 2021 00:00:00 GMT+0800 (台北標準時間)
+
+        let theYear = d.getFullYear() - 1911;
+        let theMonth = d.getMonth() + 1;
+        let theDate = d.getDate();
+        // console.log(d);
+        console.log(`民國${theYear}年${theMonth}月${theDate}日`); //民國110年6月24日
+        console.log(new Date().getDay()); //星期日是0
+
+        d=new Date("2021-06-31");
+        console.log(d); //萬年曆會自動偵測沒有6/31而遞增1天至7/1 //Thu Jul 01 2021 08:00:00 GMT+0800 (台北標準時間)
+        d=new Date("2021-06-32");
+        console.log(d); //Invalid Date->會偵測標轉日期格式沒有32
+        d=new Date(2021,5,31);
+        console.log(d); //Fri Jul 01 2021 00:00:00 GMT+0800 (台北標準時間)
+        d=new Date(2021,5,32);
+        console.log(d); //Fri Jul 02 2021 00:00:00 GMT+0800 (台北標準時間)
+        d=new Date(2021,5,0); //偵測成5月最後一天
+        console.log(d); //Mon May 31 2021 00:00:00 GMT+0800 (台北標準時間)
+    </script>
+</body>
+</html>

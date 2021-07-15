@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>01Table9x9</title>
+    <style>
+        .tb1 {
+            width: 700px;
+            border: 3px solid #0080FF;
+            border-collapse: collapse;
+            text-align: center;
+            color: #000079;
+            font-size: 20px;
+        }
+
+        th {
+            background-color: #F1E1FF;
+            border: 1px solid blue;
+        }
+
+        td {
+            background-color: #D9FFFF;
+            border: 1px solid blue;
+        }
+
+        tbody td:hover {
+            background-color: #F1E1FF;
+            color: #CE0000;
+        }
+    </style>
+</head>
+
+<body>
+    <table class="tb1">
+        <caption>
+            <h3>Homework 1. 九九乘法表</h3>
+        </caption>
+        <thead>
+            <tr id="th"></tr>
+        </thead>
+        <tbody>
+            <tr id="td"></tr>
+        </tbody>
+    </table>
+
+    <script>
+        let th = document.getElementById("th");
+        for (let i = 2; i < 10; i++) {
+            th.innerHTML += `<th>${i}</th>`;
+        }
+
+        let td = document.getElementById("td");
+        for (let i = 2; i < 10; i++) {
+            let col = "";
+            for (j = 1; j < 10; j++) {
+                col += `${i}*${j}=${i * j}<br>`;
+            }
+            td.innerHTML += `<td>${col}</td>`;
+        }
+
+    </script>
+</body>
+
+</html>

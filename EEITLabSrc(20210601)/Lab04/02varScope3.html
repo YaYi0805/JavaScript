@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html lang="zh-tw">
+<head>
+    <meta charset="UTF-8">
+    <title>02varScope.html</title>
+</head>
+<body>
+    <script>
+        //情況三 ES6在{}區塊用let宣告區塊變數block
+            //廣域(全域)變數
+            var a=100; //global variable
+            //系統內部step1. var a; //a在此還是undefined
+            //系統內部step2. a=10;   
+    
+            //函數宣告定義
+            function f(){
+                var a=10; //global variable
+                console.log("function a="+a);        //執行順序2.function a=10
+                for(let a=1;a<=5;a++){
+                    console.log("block a="+a);       //執行順序3.block a=1,block a=2,block a=3,block a=4,block a=5
+                }
+                //可用 window. 或 this. 在區域變數裡呼叫廣域(全域)變數
+                console.log("window.a="+window.a);   //執行順序4.window.a=100
+                console.log("this.a="+this.a);       //執行順序5.this.a=100
+            }
+        
+            //呼叫函數
+            console.log("function call before a="+a); //執行順序1.function call before a=100
+            f();
+            console.log("function call after a="+a);  //執行順序6.function call after a=100
+    </script>
+</body>
+</html>

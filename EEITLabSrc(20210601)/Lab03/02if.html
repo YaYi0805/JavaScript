@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html lang="zh-tw">
+<head>
+    <meta charset="UTF-8">
+    <title>02if.html</title>
+</head>
+<body>
+    <script>
+        //let a = 10, b = 20;
+
+        //使用window.prompt()方法，取得變數値
+        // let a=window.prompt("please input a:","10"); 
+        // let b=prompt("please input b:");
+        //window.prompt()回傳值是字串,所以要比較數值大小要轉型,否則a預設"10",b輸入"2",會變成"1"和"2"字串比較,console為a < b
+        let a=parseInt(prompt("please input a:","10")); //window.可省略
+        let b=parseInt(prompt("please input b:"));
+        if (a > b)
+            console.log("a > b");
+        else
+            console.log("a < b");
+
+
+        // var Transportation = "",
+        //     money=parseInt(prompt("請輸入你有多少錢"));
+        // if(money > 2500){
+        //     Transportation = "飛機";    
+        // }else if(money > 1500){
+        //     Transportation = "高鐵";    
+        // }else if(money > 1000){
+        //     Transportation = "火車";
+        // }else if(money > 500){
+        //     Transportation = "統聯";
+        // }else{
+        //     Transportation = "摩托車";
+        // }
+        // console.log("台北到高雄坐 " + Transportation);
+
+    </script>
+</body>
+</html>

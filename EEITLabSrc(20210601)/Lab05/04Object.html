@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+<head>
+    <meta charset="UTF-8">
+    <title>04Object.html</title>
+</head>
+<body>
+    <div id="myDiv"></div>
+    <script>
+        //物件成員包含property屬性和method方法
+
+        function f(){ //函數宣告
+            return this.brand+","+this["max speed"]; //this指向該函數的物件
+        }
+
+        let car=new Object(); 
+        //存取屬性寫法一
+        car.brand="audi";
+        car.color="red";
+        car["max speed"]="200";
+        car.print1=f; //function f 的內容 = binding 繫結 綁定
+        console.log(car); //{brand: "audi", color: "red", max speed: "200", print1: ƒ}
+        //呼叫方法
+        console.log(car.print1()); //audi,200
+
+        //-----------------------------------------------------------------------------
+
+        //存取屬性寫法二
+        let cars={
+            brand:"audi",
+            color:"red",
+            "max speed":300,
+            print2:function(){ //匿名函數
+                return this.color+"-"+this["max speed"]
+            }
+        }
+        console.log(cars); //{brand: "audi", color: "red", max speed: 300, print2: ƒ}
+        //呼叫方法
+        console.log(cars.print2()); //red-300
+
+
+
+        //for( 變數名稱 in 陣列或物件 )
+        let myDiv=document.getElementById("myDiv");
+        for(let pro in cars){
+            //console.log(pro);        //屬性名稱brand,color,max speed
+            //console.log(cars[pro]);  //屬性值  audi,red,300
+            console.log("cars["+pro+"]="+cars[pro]);
+            //myDiv.innerHTML+="<li>"+"cars["+pro+"]="+cars[pro]+"</li>"; //ES5
+            myDiv.innerHTML+=`<li>cars[${pro}]=${cars[pro]}</li>`; //ES6
+        }
+    </script>        
+</body>
+</html>

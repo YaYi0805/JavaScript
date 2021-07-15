@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>03stars</title>
+    <style>
+        h3,
+        p {
+            margin-left: 50px;
+        }
+
+        figure {
+            width: 665px;
+            border: 3px solid #FFD306;
+            float: left;
+            padding: 30px;
+            margin-right: 20px;
+        }
+
+        figcaption {
+            font-size: 30px;
+            font-weight: bolder;
+            text-align: center;
+            color: #D94600;
+        }
+    </style>
+</head>
+
+<body>
+    <h3>Homework 3. 評點製作</h3>
+    <p>說明：單點擊星星可評分，雙點擊星星可重新評分。</p>
+    <figure>
+        <img src="Images/star.gif" class="star" id="star1" />
+        <img src="Images/star.gif" class="star" id="star2" />
+        <img src="Images/star.gif" class="star" id="star3" />
+        <img src="Images/star.gif" class="star" id="star4" />
+        <img src="Images/star.gif" class="star" id="star5" />
+        <figcaption>分數：<span id="score"></span></figcaption>
+    </figure>
+    <script>
+        let score = document.getElementById("score");
+        score.innerHTML = "尚未評分";
+        let images = document.querySelectorAll(".star");
+        console.log(images); //odeList(5) [img#star1.star, img#star2.star, img#star3.star, img#star4.star, img#star5.star]
+        for (let image of images) {
+            image.addEventListener("mouseover", mouseover);
+            image.addEventListener("mouseout", mouseout);
+            image.addEventListener("click", click);
+            //image.addEventListener("dblclick",dblclick);
+        }
+        function mouseover() {
+            for (let i = 0; i < this.id.substr(4); i++) {
+                images[i].src = "Images/chngstar.gif";
+            }
+        }
+
+        function mouseout() {
+            for (let i = 0; i < this.id.substr(4); i++) {
+                images[i].src = "Images/star.gif";
+            }
+        }
+
+        function click() {
+            score.innerHTML = this.id.substr(4) + "顆星";
+            //this.src = "Images/chngstar.gif";
+            for (let i = 0; i < this.id.substr(4); i++) {
+                images[i].src = "Images/chngstar.gif";
+            }
+            for (let i = 0; i >= this.id.substr(4); i++) {
+                images[i].src = "Images/star.gif";
+            }
+
+
+
+
+            for (let i = 0; i < this.id.substr(4); i++) {
+                images[i].onmouseout = function () {
+                    for (let i = 0; i < this.id.substr(4); i++) {
+                        images[i].src = "Images/chngstar.gif";
+                    }
+                }
+            }
+        }
+
+    </script>
+</body>
+
+</html>

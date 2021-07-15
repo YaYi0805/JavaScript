@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>05createOptionObject.html</title>
+    <script>
+        document.addEventListener("DOMContentLoaded",function(){   
+            document.getElementById('idSelectYear').addEventListener("change",addDate);
+            document.getElementById('idSelectMonth').addEventListener("change",addDate);
+
+            for (let i = 2010; i <= 2025; i++) {   //新增月 
+                let opt = document.createElement("option");  //<option></option>
+                opt.setAttribute("value", i);  //<option value="1"></option>
+                let optTxt = document.createTextNode(i);  //1
+                opt.appendChild(optTxt);  //<option value="1">1</option>
+                // opt.value = i;
+                // opt.innerHTML = i;
+                document.getElementById('idSelectYear').appendChild(opt);
+                //<select id="idSelectMonth"><option value="1">1</option></select>
+            }
+            for (let i = 1; i <= 12; i++) {   //新增月 
+                let opt = document.createElement("option");  //<option></option>
+                opt.setAttribute("value", i);  //<option value="1"></option>
+                let optTxt = document.createTextNode(i);  //1
+                opt.appendChild(optTxt);  //<option value="1">1</option>
+                // opt.value = i;
+                // opt.innerHTML = i;
+                document.getElementById('idSelectMonth').appendChild(opt);
+                //<select id="idSelectMonth"><option value="1">1</option></select>
+            }
+        });
+
+        let yy,mm;
+        function addDate(){
+            yy=document.getElementById('idSelectYear').value;
+            mm=document.getElementById('idSelectMonth').value;
+            // alert(`yy=${yy},mm=${mm}`);
+            let d=new Date(yy,mm-1,0);  //2021/7/0 -->2021/7/31
+            alert(d.getDate());
+
+            //let d=new Date(2021,6,0);  //2021/7/0==>2021/6/30
+            //alert(d.getDate());
+        }
+	</script>
+	</head>
+	<body>
+		Year:<select id="idSelectYear"></select>
+        Month:<select id="idSelectMonth"></select>
+        <select>
+            <option value="1">A</option>
+            <option value="2">B</option>
+            <option value="3">C</option>
+        </select>
+	</body>
+
+</html>

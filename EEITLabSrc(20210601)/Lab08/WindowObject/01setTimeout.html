@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>01setTimeout.html</title>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+               document.getElementById("idbutstop").addEventListener("click", stopf);  //事件繫結
+        });
+
+        function stopf() {
+            window.clearTimeout(t) //停止計時器            
+        }
+
+        //轉向連結到 http://iiiedu.org.tw
+        //slide104,location.href-轉向連結到其它網址
+        function f(){
+            location.href="http://iiiedu.org.tw";
+        }
+
+        let t=window.setTimeout(f,2000);
+
+    </script>
+</head>
+<body>    
+	<input type="button" id="idbutstop" value="停止轉向連結" />
+</body>
+</html>

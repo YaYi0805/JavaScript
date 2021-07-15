@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>03stars</title>
+    <style>
+        .hw3h,
+        .hw3p {
+            margin-left: 50px;
+        }
+
+        .rating {
+            width: 665px;
+            border: 3px solid #FFD306;
+            padding: 30px;
+            margin-right: 20px;
+            margin-left: 50px;
+        }
+
+        .hw3h4 {
+            font-size: 30px;
+            font-weight: bolder;
+            color: #D94600;
+            margin-left: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <h3 class="hw3h">Homework 3. 評點製作</h3>
+    <p class="hw3p">說明：單點擊星星可評分，重新點擊星星可重新評分。</p>
+    <div class="rating">
+        <img src="Images/star.gif" class="star" id="star1" />
+        <img src="Images/star.gif" class="star" id="star2" />
+        <img src="Images/star.gif" class="star" id="star3" />
+        <img src="Images/star.gif" class="star" id="star4" />
+        <img src="Images/star.gif" class="star" id="star5" />
+    </div>
+    <h4 class="hw3h4" id="rating-value"></h4>
+
+    <script>
+        const stars = document.querySelector(".rating").children;
+        let ratingValue;
+        let index; //目前選到的星星
+        document.getElementById("rating-value").innerHTML = "請評分";
+
+        for (let i = 0; i < stars.length; i++) {
+            stars[i].addEventListener("mouseover", function () {
+                document.getElementById("rating-value").innerHTML = "正在打分數中..."
+                for (let j = 0; j < stars.length; j++) {
+                    stars[j].src="Images/chngstar.gif";
+                    stars[j].src="Images/star.gif";
+                }
+                for (let j = 0; j <= i; j++) {
+                    stars[j].src="Images/star.gif"; //移除空星星
+                    stars[j].src="Images/chngstar.gif" //添加新星星 如果i=j表示選中的
+                }
+            })
+
+            stars[i].addEventListener("click", function () {
+                ratingValue = i + 1
+                index = i
+                document.getElementById("rating-value").innerHTML = "您的評分為" + ratingValue + "顆星";
+            })
+
+            stars[i].addEventListener("mouseout", function () {
+                for (let j = 0; j < stars.length; j++) {
+                    stars[j].src="Images/chngstar.gif";
+                    stars[j].src="Images/star.gif";
+                }
+                for (let j = 0; j <= index; j++) {
+                    stars[j].src="Images/star.gif";
+                    stars[j].src="Images/chngstar.gif";
+                }
+            })
+        }
+    </script>
+</body>
+
+</html>

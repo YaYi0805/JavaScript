@@ -1,0 +1,21 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>05eventObjectKeyborad.html</title>
+    <script> 
+        //鍵盤事件繫結
+        //document.addEventListener("keydown", keyDown);  //大寫鍵，用控制鍵crop lock
+        document.addEventListener("keypress", keyDown);  //大小寫鍵       
+        function keyDown(event) {
+            alert(event.which);
+            if (event.altKey) alert("ALT");
+            if (event.ctrlKey) alert("CTRL");
+            if (event.shiftKey) alert("SHIFT");
+        }          
+    </script>
+</head>
+<body>    
+   
+</body>
+</html>

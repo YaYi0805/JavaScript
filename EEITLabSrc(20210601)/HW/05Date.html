@@ -1,0 +1,118 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>05Date</title>
+    <style>
+        .box {
+            border: 1px solid black;
+            width: 500px;
+        }
+
+        .d1 {
+            width: 50px;
+            color: black;
+            font-size: 20px;
+            font-weight: bolder;
+            text-align: center;
+            background-color: #FFD306;
+            border-radius: 10px;
+            padding: 6px;
+            margin: 2px;
+        }
+
+        .d2{
+            width: 248px;
+            height: 200px;
+            display: inline;
+            float: left;
+        }
+        .d3{
+            width: 248px;
+            height: 20px;
+            background-color: #424200;
+            color: #ffffff;
+            border: 1px solid black;
+            display: inline-block;
+        }
+
+        .d4{
+            width: 248px;
+            height: 180px;
+            border: 1px solid black;
+            display: inline-block;
+        }
+
+        .d5 {
+            width: 500px;
+            border: 1px solid black;
+            background-color: #424200;
+            color: #ffffff;
+            text-align: center;
+        }
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            document.getElementById('idSelectYear').addEventListener("change", addDate);
+            document.getElementById('idSelectMonth').addEventListener("change", addDate);
+            document.getElementById('idSelectDay').addEventListener("change", printdate);
+
+            for (let i = 2010; i <= 2025; i++) {   //新增月 
+                let opt = document.createElement("option");  //<option></option>
+                // opt.setAttribute("value", i);  //<option value="1"></option>
+                // let optTxt = document.createTextNode(i);  //1
+                // opt.appendChild(optTxt);  //<option value="1">1</option>
+                opt.value = i;
+                opt.innerHTML = i;
+                document.getElementById('idSelectYear').appendChild(opt);
+                //<select id="idSelectYear"><option value="1">1</option></select>
+            }
+            for (let i = 1; i <= 12; i++) {   //新增月 
+                let opt = document.createElement("option");
+                opt.value = i;
+                opt.innerHTML = i;
+                document.getElementById('idSelectMonth').appendChild(opt);
+            }
+        });
+
+        let yy, mm, day;
+        
+        function addDate() {
+            yy = document.getElementById('idSelectYear').value;
+            mm = document.getElementById('idSelectMonth').value;
+            let d = new Date(yy, mm, 0);
+            day = d.getDate();
+            for (let i = 1; i <= day; i++) {   //新增日
+                let opt = document.createElement("option");
+                opt.value = i;
+                opt.innerHTML = i;
+                document.getElementById('idSelectDay').appendChild(opt);
+            }
+        }
+        
+        function printdate(){
+            let dd=document.getElementById('idSelectDay').value;
+            document.getElementById("printdate").innerHTML=`<span>您選的日期是${yy}年${mm}月${dd}日</span>`
+        }
+        
+
+    </script>
+</head>
+
+<body>
+    <div class="box">
+        <div class="d1">月曆</div>
+        <P>Welcome</P>
+        <div class="d2">
+            <select id="idSelectYear"></select> 年
+            <select id="idSelectMonth"></select> 月
+            <select id="idSelectDay"></select> 日
+        </div>
+        <div class="d3">Information</div>
+        <div class="d4" id="printdate">日期選擇中...</div>
+    </div>
+    <div class="d5">@2021 All Rights Reserved</div>
+</body>
+
+</html>
